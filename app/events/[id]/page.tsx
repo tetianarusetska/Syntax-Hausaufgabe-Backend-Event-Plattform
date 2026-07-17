@@ -14,6 +14,12 @@ export default async function Page({ params, searchParams }: PageProps) {
     const { id } = await params;
     const { mode } = await searchParams;
 
+    // Aufgabe 5
+    // Test
+    if (id === "0" || id === "999") {
+        throw new Error("Event konnte nicht geladen werden.");
+    }
+
 
     return (
         <div className="min-h-screen w-full">
