@@ -1,26 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 @import "tailwindcss";
 
+@font-face {
+    font-family: "BebasNeue";
+    src: url("/fonts/bebas_neue/BebasNeue-Regular.woff2");
+}
+
+@font-face {
+    font-family: "CreatoDisplay";
+    src: url("/fonts/creato_display/CreatoDisplay-ExtraBold.otf");
+}
+
+@font-face {
+    font-family: "DiamondGrotesk";
+    src: url("/fonts/DiamondGrotesk-VF.ttf");
+}
+
+@font-face {
+    font-family: "Itsajump";
+    src: url("/fonts/itsajump-ItalicBold.otf");
+}
+
+@font-face {
+    font-family: "Magoa";
+    src: url("/fonts/MagoaDemo.otf");
+}
+
+@font-face {
+    font-family: "Fayte";
+    src: url("/fonts/fayte-font/faytetest-regular.otf");
+}
+
+@font-face {
+    font-family: "Lecturis";
+    src: url("/fonts/fh-lecturis-font-family/fhlecturisroundedtest-bold.otf");
+}
+
+@font-face {
+    font-family: "Kino40";
+    src: url("/fonts/kino_40/KINO40.ttf");
+}
+
+@font-face {
+    font-family: "Made_Brush";
+    src: url("/fonts/made_soulmaze/MADE\ Soulmaze\ Brush\ PERSONAL\ USE.otf");
+}
+
+
+@font-face {
+    font-family: "Made";
+    src: url("/fonts/made_soulmaze/MADE\ Soulmaze\ PERSONAL\ USE.otf");
+}
+
+@font-face {
+    font-family: "Outfit";
+    src: url("/fonts/Montserrat_Outfit/Outfit/Outfit-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: "Outward";
+    src: url("/fonts/outward/outward-block.ttf");
+}
+
+@font-face {
+    font-family: "Outward_round";
+    src: url("/fonts/outward/outward-round.ttf");
+}
+
+
+@font-face {
+    font-family: "Palmore";
+    src: url("/fonts/PALMORE-Font/WOFF2/Palmore.woff2");
+}
+
+@font-face {
+    font-family: "Kosmos";
+    src: url("/fonts/planet_kosmos/PLANK___.TTF");
+}
+
+@font-face {
+    font-family: "Bros";
+    src: url("/fonts/zt_bros_oskon_90s/ZTBrosOskon90s-Regular.otf");
+}
+
+@font-face {
+    font-family: "BrandonGrotesque-Light";
+    src: url("https://db.onlinewebfonts.com/t/4720a7d244f0e454a222c6c175fd2a01.eot");
+    src: url("https://db.onlinewebfonts.com/t/4720a7d244f0e454a222c6c175fd2a01.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/4720a7d244f0e454a222c6c175fd2a01.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/4720a7d244f0e454a222c6c175fd2a01.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/4720a7d244f0e454a222c6c175fd2a01.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/4720a7d244f0e454a222c6c175fd2a01.svg#BrandonGrotesque-Light")format("svg");
+}
+
+@font-face {
+    font-family: "Algerian";
+    src: url("/fonts/AlgerianRegular/AlgerianRegular.ttf");
+}
+
+@font-face {
+    font-family: "Jacquard";
+    src: url("/fonts/Jacquard_24/Jacquard24-Regular.ttf");
+}
+
+@font-face {
+    font-family: "LeMurmure";
+    src: url("/fonts/murmure-main/fonts/le-murmure.ttf");
+}
+
+@font-face {
+    font-family: "Alegreya";
+    src: url("/fonts/Alegreya/Alegreya-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: "Almendra";
+    src: url("/fonts/Almendra/Almendra-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Melodrama";
+    src: url("/fonts/Melodrama_Complete-2/Fonts/TTF/Melodrama-Variable.ttf");
+}
+
+@font-face {
+    font-family: "ABCMaxi";
+    src: url("/fonts/ABC Maxi/ABC Maxi Plus Variable/.ABCMaxiPlusVariable-Trial.ttf");
+}
+
+@font-face {
+    font-family: "Boxing";
+    src: url("/fonts/Boxing_Complete/Fonts/WEB/fonts/Boxing-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Aktura";
+    src: url("/fonts/Aktura_Complete/Fonts/WEB/fonts/Aktura-Regular.ttf");
+}
+
+@font-face {
+    font-family: "New Title";
+    src: url("/fonts/NewTitle_Complete/Fonts/TTF/NewTitle-Variable.ttf");
+}
+
+@font-face {
+    font-family: "Striper";
+    src: url("/fonts/Striper_Complete/Fonts/WEB/fonts/Striper-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Grotesk";
+    src: url("/fonts/test2ttf/Test_Die_Grotesk/TestDieGroteskVF-Roman.ttf");
+}
+
+@font-face {
+    font-family: "Grotesk_thin";
+    src: url("/fonts/test1otf/Test_Die_Grotesk/TestDieGrotesk-C-Thin.otf");
+}
+
+@font-face {
+    font-family: "Grotesk_Founders_Medium";
+    src: url("/fonts/test1otf/Test_Founders_Grotesk_Collection/Test_Founders_Grotesk/TestFoundersGrotesk-Medium.otf");
+}
+
+@font-face {
+    font-family: "Grotesk_Founders_Regular";
+    src: url("/fonts/test1otf/Test_Founders_Grotesk_Collection/Test_Founders_Grotesk/TestFoundersGrotesk-Regular.otf");
+}
+
+@font-face {
+    font-family: "Grotesk_XBold";
+    src: url("/fonts/test1otf/Test_Founders_Grotesk_Collection/Test_Founders_Grotesk_X-Condensed/TestFoundersGroteskX-Condensed-Bold.otf");
+}
+
+@font-face {
+    font-family: "Geograph";
+    src: url("/fonts/test2ttf/Test_Geograph/TestGeographVF-Roman.ttf");
+}
+
+@font-face {
+    font-family: "Geograph_Medium";
+    src: url("/fonts/test1otf/Test_Geograph/TestGeograph-Medium.otf");
+}
+
+@font-face {
+    font-family: "Geograph_Light";
+    src: url("/fonts/test1otf/Test_Geograph/TestGeograph-Light.otf");
+}
+
+@font-face {
+    font-family: "Untitled";
+    src: url("/fonts/test2ttf/Test_Untitled_Collection/Test_Untitled_Sans/TestUntitledSansVF-Roman.ttf");
+}
+
+@font-face {
+    font-family: "American_Gr";
+    src: url("/fonts/test1otf/Test_American_Grotesk_Collection/Test_American_Grotesk_Compressed/TestAmericanGroteskCompressed-Light.otf");
+}
+
+@font-face {
+    font-family: "Feijoa";
+    src: url("/fonts/test1otf/Test_Feijoa/TestFeijoa-Display.otf");
+}
+
+@font-face {
+    font-family: "Karbon";
+    src: url("/fonts/test1otf/Test_Karbon_Collection/Test_Karbon/TestKarbon-Regular.otf");
+}
+
+@font-face {
+    font-family: "MaelstromSans";
+    src: url("/fonts/test1otf/Test_Maelstrom_Collection/Test_Maelstrom_Sans/TestMaelstromSans-Bold.otf");
+}
+
+@font-face {
+    font-family: "MaelstromBold";
+    src: url("/fonts/test1otf/Test_Maelstrom_Collection/Test_Maelstrom/TestMaelstrom-Bold.otf");
+}
+
+@font-face {
+    font-family: "Manuka";
+    src: url("/fonts/test1otf/Test_Manuka_Collection/Test_Manuka/TestManuka-Light.otf");
+}
+
+@font-face {
+    font-family: "Manuka_Ultra";
+    src: url("/fonts/test1otf/Test_Manuka_Collection/Test_Manuka/TestManuka-Ultra.otf");
+}
+
+@font-face {
+    font-family: "SohneSchmalBuch";
+    src: url("/fonts/test1otf/Test_Sohne_Collection/Test_Sohne_Schmal/TestSohneSchmalBuch.otf");
+}
+
+@font-face {
+    font-family: "SohneSchmalLeicht";
+    src: url("/fonts/test1otf/Test_Soohne_Collection/Test_Soohne_Schmal/TestSohneSchmalExtraleicht.otf");
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --bgColor: #000000;
+  --mainColor: #ffffff;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bgColor);
+  color: var(--mainColor);
+  font-family: "Montserrat";
 }
