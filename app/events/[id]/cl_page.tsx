@@ -1,19 +1,18 @@
-// Aufgabe 4
-// Page als async Server Component
+// Aufgabe 1
+// Page als Client Component
 
+"use client"
+
+import { useParams, useSearchParams } from "next/navigation"
 import ButtonPrevPage from "@/app/cl_components/ButtonPrevPage"
 import Navbar from "@/app/cl_components/Navbar"
-import { type PageProps } from "../../types/PageProps"
 
-export default async function Page({ params, searchParams }: PageProps) {
+export default function Page() {
 
-    await new Promise((resolve) => {
-        setTimeout(resolve, 4000);
-    });
+    const { id } = useParams<{ id: string }>()
 
-    const { id } = await params;
-    const { mode } = await searchParams;
-
+    const searchParams = useSearchParams()
+    const mode = searchParams.get("mode")
 
     return (
         <div className="min-h-screen w-full">
