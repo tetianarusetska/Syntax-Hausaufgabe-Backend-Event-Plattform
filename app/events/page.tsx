@@ -1,7 +1,10 @@
 import Link from "next/link";
 import Navbar from "../cl_components/Navbar";
+import { createEvent, getPublicEvents } from "./actions";
 
-export default async function EvetsPage() {
+export default async function EventsPage() {
+
+    const events = await getPublicEvents();
 
     await new Promise((resolve) => {
         setTimeout(resolve, 4000);
@@ -21,7 +24,7 @@ export default async function EvetsPage() {
                 </div>
 
 
-                <form className="flex flex-col gap-5 mx-10">
+                <form action={createEvent} className="flex flex-col gap-5 mx-10">
 
                     <h1 className="font-['Fejoa'] text-2xl font-bold underline">Form</h1>
 
@@ -43,9 +46,24 @@ export default async function EvetsPage() {
 
                 </form>
 
-                <ul></ul>
+                <div className="mx-10 font-['Fejoa'] text-2xl">
+
+                    <h1 className="text-5xl font-['BebasNeue'] mt-10">Öffentliche Events</h1>
+
+                    <ul className="flex flex-col gap-5 mt-10 w-80 border border-(--mainColor) rounded-2xl px-4 py-4">
+                        {events.map((event) => (
+                            <li key={event.id}>
+                                <h3>{event.title}</h3>
+                                <p>Ort: {event.location}</p>
+                                <p>Datum: {event.date.toLocaleDateString()}</p>
+                                <p>Status: Öffentlich</p>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
 
             </div>
         </>
     )
 }
+

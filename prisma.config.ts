@@ -1,5 +1,5 @@
-import { loadEnvFile } from "node:process";
 import { defineConfig, env } from "prisma/config";
+import { loadEnvFile } from "node:process";
 
 loadEnvFile(".env");
 
