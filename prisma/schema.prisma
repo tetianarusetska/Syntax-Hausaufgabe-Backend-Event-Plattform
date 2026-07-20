@@ -1,0 +1,17 @@
+
+generator client {
+  provider = "prisma-client-js"
+  engineType = "binary"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Post {
+  id          Int        @id @default(autoincrement())
+  title       String
+  location    String
+  date        DateTime   @default(now())
+  isPublic    Boolean    @default(false)
+}
