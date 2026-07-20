@@ -11,6 +11,10 @@ export async function createEvent(formData: FormData) {
     const date = formData.get("date") as string;
     const isPublic = formData.get("isPublic") === "on";
 
+    if (!title || !location || !date) {
+        throw new Error("Bitte alle Felder ausfüllen");
+    }
+
     await prisma.event.create({
         data: {
             title,

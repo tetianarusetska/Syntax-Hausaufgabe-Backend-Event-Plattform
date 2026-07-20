@@ -28,9 +28,9 @@ export default async function EventsPage() {
 
                     <h1 className="font-['Fejoa'] text-2xl font-bold underline">Form</h1>
 
-                    <input name="title" placeholder="Titel" className="border border-(--mainColor) w-80 h-8 font-['Fejoa'] text-2xl" />
-                    <input name="location" placeholder="Ort" className="border border-(--mainColor) w-80 h-8 font-['Fejoa'] text-2xl" />
-                    <input name="date" type="date" className="border border-(--mainColor) w-80 h-8 font-['Fejoa'] text-2xl" />
+                    <input name="title" placeholder="Titel" required className="border border-(--mainColor) w-80 h-8 font-['Fejoa'] text-2xl" />
+                    <input name="location" placeholder="Ort" required className="border border-(--mainColor) w-80 h-8 font-['Fejoa'] text-2xl" />
+                    <input name="date" type="date" required className="border border-(--mainColor) w-80 h-8 font-['Fejoa'] text-2xl" />
 
                     <label className="flex flex-row gap-4 font-['Fejoa'] text-2xl">
                         <input type="checkbox" name="isPublic" className="w-6 h-6 " />
@@ -51,14 +51,29 @@ export default async function EventsPage() {
                     <h1 className="text-5xl font-['BebasNeue'] mt-10">Öffentliche Events</h1>
 
                     <ul className="flex flex-col gap-5 mt-10 w-80 border border-(--mainColor) rounded-2xl px-4 py-4">
-                        {events.map((event) => (
-                            <li key={event.id}>
-                                <h3>{event.title}</h3>
-                                <p>Ort: {event.location}</p>
-                                <p>Datum: {event.date.toLocaleDateString()}</p>
-                                <p>Status: Öffentlich</p>
-                            </li>
-                        ))}
+                        {events.map((event) => {
+
+                            const isOld = event.date < new Date();
+                            
+                            return (
+                                <li key={event.id}>
+                                    <h3>{event.title}</h3>
+                                    <p>Ort: {event.location}</p>
+                                    <p>Datum: {event.date.toLocaleDateString("de-DE", {
+                                        day: "2-digit",
+                                        month: "long",
+                                        year: "numeric"
+                                    })}
+                                    </p>
+                                    <p>Status: Öffentlich</p>
+                                    {isOld && (
+                                        <p className="text-red-600 font-bold">
+                                            Vergangenes Event
+                                        </p>
+                                    )}
+                                </li>
+                            );
+                        })}
                     </ul>
                 </div>
 
