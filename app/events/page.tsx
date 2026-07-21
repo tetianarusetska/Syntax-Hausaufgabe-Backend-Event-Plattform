@@ -3,6 +3,8 @@ import Navbar from "../cl_components/Navbar";
 import { createEvent, getPublicEvents } from "./actions";
 import { type Event } from "../types/Event"
 
+export const dynamic = "force-dynamic";
+
 export default async function EventsPage() {
 
     const events: Event[] = await getPublicEvents();

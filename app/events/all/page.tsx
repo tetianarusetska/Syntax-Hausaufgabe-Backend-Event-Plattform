@@ -2,6 +2,7 @@ import Navbar from "@/app/cl_components/Navbar";
 import { getAllEvents } from "../actions";
 import { type Event } from "../../types/Event";
 
+export const dynamic = "force-dynamic";
 
 export default async function AllEventsPage() {
     const events: Event[] = await getAllEvents();
