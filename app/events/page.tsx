@@ -1,10 +1,11 @@
 import Link from "next/link";
 import Navbar from "../cl_components/Navbar";
 import { createEvent, getPublicEvents } from "./actions";
+import { type Event } from "@/app/types/Event"
 
 export default async function EventsPage() {
 
-    const events = await getPublicEvents();
+    const events: Event[] = await getPublicEvents();
 
     await new Promise((resolve) => {
         setTimeout(resolve, 4000);
