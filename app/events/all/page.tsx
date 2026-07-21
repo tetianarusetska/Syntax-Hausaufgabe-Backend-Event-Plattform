@@ -1,8 +1,10 @@
 import Navbar from "@/app/cl_components/Navbar";
 import { getAllEvents } from "../actions";
+import { type Event } from "../../types/Event";
+
 
 export default async function AllEventsPage() {
-    const events = await getAllEvents();
+    const events: Event[] = await getAllEvents();
 
     return (
         <>
