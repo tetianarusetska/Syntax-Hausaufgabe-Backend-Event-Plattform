@@ -41,7 +41,7 @@ export async function getPublicEvents(): Promise<Event[]> {
     });
 }
 
-export async function getAllEvents() {
+export async function getAllEvents(): Promise<Event[]> {
     return await prisma.event.findMany({
         orderBy: {
             date: "asc"
