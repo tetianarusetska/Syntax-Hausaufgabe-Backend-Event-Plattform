@@ -5,6 +5,7 @@ import { type Event } from "../types/Event"
 
 export const dynamic = "force-dynamic";
 
+
 export default async function EventsPage() {
 
     const events: Event[] = await getPublicEvents();
