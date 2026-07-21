@@ -2,6 +2,8 @@
 
 import { prisma } from "@/prisma/prisma.client";
 import { revalidatePath } from "next/cache";
+import { type Event } from "../types/Event";
+
 
 
 export async function createEvent(formData: FormData) {
@@ -28,7 +30,7 @@ export async function createEvent(formData: FormData) {
     revalidatePath("/events/all");
 }
 
-export async function getPublicEvents() {
+export async function getPublicEvents(): Promise<Event[]> {
     return await prisma.event.findMany({
         where: {
             isPublic: true
