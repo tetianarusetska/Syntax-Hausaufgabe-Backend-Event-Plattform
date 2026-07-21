@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Navbar from "../cl_components/Navbar";
 import { createEvent, getPublicEvents } from "./actions";
-import { type Event } from "@/app/types/Event"
+import { type Event } from "../types/Event"
 
 export default async function EventsPage() {
 
