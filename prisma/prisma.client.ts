@@ -1,8 +1,5 @@
 import { PrismaPg } from "@prisma/adapter-pg";
 import { PrismaClient } from "./client/client";
-import { loadEnvFile } from "node:process";
-
-loadEnvFile(".env");
 
 const globalForPrisma = global as unknown as {
     prisma: PrismaClient;
