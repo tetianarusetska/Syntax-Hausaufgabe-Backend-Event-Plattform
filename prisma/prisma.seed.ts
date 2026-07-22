@@ -18,7 +18,7 @@ async function seed() {
         data: {
             title: "New Year Party 2027",
             location: "Berlin",
-            date: "31.12.2026",
+            date: new Date("2026-12-31"),
             isPublic: true
         }
     })
@@ -26,7 +26,7 @@ async function seed() {
         data: {
             title: "Sommer End Party",
             location: "Frankfurt am Main",
-            date: "31.08.2026",
+            date: new Date("2026-08-31"),
             isPublic: true
         }
     })
