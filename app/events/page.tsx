@@ -2,6 +2,7 @@ import Link from "next/link";
 import Navbar from "../cl_components/Navbar";
 import { createEvent, getPublicEvents } from "./actions";
 import { type Event } from "../types/Event"
+import EventPost from "./EventPost";
 
 export const dynamic = "force-dynamic";
 
@@ -54,29 +55,13 @@ export default async function EventsPage() {
 
                     <h1 className="text-5xl font-['BebasNeue'] mt-10">Öffentliche Events</h1>
 
-                    <ul className="flex flex-col gap-5">
+                    <ul>
                         {events.map((event) => {
-
-                            const isOld = event.date < new Date();
-
                             return (
                                 <li key={event.id}
-                                    className="mt-10 w-80 border border-(--mainColor) rounded-2xl px-4 py-4"
+                                    className="mt-10 w-100 border border-(--mainColor) rounded-2xl px-4 py-4"
                                 >
-                                    <h3>{event.title}</h3>
-                                    <p>Ort: {event.location}</p>
-                                    <p>Datum: {event.date.toLocaleDateString("de-DE", {
-                                        day: "2-digit",
-                                        month: "long",
-                                        year: "numeric"
-                                    })}
-                                    </p>
-                                    <p>Status: Öffentlich</p>
-                                    {isOld && (
-                                        <p className="text-red-600 font-bold">
-                                            Vergangenes Event
-                                        </p>
-                                    )}
+                                    <EventPost {...event} />
                                 </li>
                             );
                         })}

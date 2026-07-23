@@ -48,3 +48,15 @@ export async function getAllEvents(): Promise<Event[]> {
         }
     });
 }
+
+
+
+export async function deleteEvent(id: number) {
+    
+    await prisma.event.delete({
+        where: { id }
+    });
+
+    revalidatePath("/events");
+    revalidatePath("/events/all");
+}
