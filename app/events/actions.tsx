@@ -63,6 +63,15 @@ export async function deleteEvent(id: number) {
 }
 
 
+export async function deleteAllEvents() {
+
+    await prisma.event.deleteMany();
+
+    revalidatePath("/events");
+    revalidatePath("/events/all");
+}
+
+
 export async function updateEvent(formData: FormData) {
 
     const id = Number(formData.get("id"))

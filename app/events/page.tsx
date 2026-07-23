@@ -3,6 +3,7 @@ import Navbar from "../cl_components/Navbar";
 import { createEvent, getPublicEvents } from "./actions";
 import { type Event } from "../types/Event"
 import EventPost from "./cl_components/EventPost";
+import DeleteAllButton from "./s_components/DeleteAllButton";
 
 export const dynamic = "force-dynamic";
 
@@ -27,7 +28,6 @@ export default async function EventsPage() {
                     <Link href="/events/1?mode=details" className="font-['Fejoa'] text-2xl font-bold underline">Event 1 – Details</Link>
                     <Link href="/events/2?mode=details" className="font-['Fejoa'] text-2xl font-bold underline">Event 1 – Details</Link>
                 </div>
-
 
                 <form action={createEvent} className="flex flex-col gap-5 mx-10">
 
@@ -54,6 +54,8 @@ export default async function EventsPage() {
                 <div className="mx-10 font-['Fejoa'] text-2xl">
 
                     <h1 className="text-5xl font-['BebasNeue'] mt-10">Öffentliche Events</h1>
+
+                    <DeleteAllButton />
 
                     <ul>
                         {events.map((event) => {
