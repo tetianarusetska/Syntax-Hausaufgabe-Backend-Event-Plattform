@@ -1,9 +1,8 @@
 "use server"
 
-import { prisma } from "@/prisma/prisma.client";
 import { revalidatePath } from "next/cache";
 import { type Event } from "../types/Event";
-
+import eventService from "./service";
 
 
 export async function createEvent(formData: FormData) {
@@ -17,13 +16,11 @@ export async function createEvent(formData: FormData) {
         throw new Error("Bitte alle Felder ausfüllen");
     }
 
-    await prisma.event.create({
-        data: {
-            title,
-            location,
-            date: new Date(date),
-            isPublic
-        }
+    await eventService.create({
+        title,
+        location,
+        date: new Date(date),
+        isPublic
     });
 
     revalidatePath("/events");
@@ -32,31 +29,19 @@ export async function createEvent(formData: FormData) {
 
 
 export async function getPublicEvents(): Promise<Event[]> {
-    return await prisma.event.findMany({
-        where: {
-            isPublic: true
-        },
-        orderBy: {
-            date: "asc"
-        }
-    });
+    return await eventService.getPublicEvents();
 }
 
+
 export async function getAllEvents(): Promise<Event[]> {
-    return await prisma.event.findMany({
-        orderBy: {
-            date: "asc"
-        }
-    });
+    return await eventService.getAllEvents();
 }
 
 
 
 export async function deleteEvent(id: number) {
 
-    await prisma.event.delete({
-        where: { id }
-    });
+    await eventService.delete(id);
 
     revalidatePath("/events");
     revalidatePath("/events/all");
@@ -65,7 +50,7 @@ export async function deleteEvent(id: number) {
 
 export async function deleteAllEvents() {
 
-    await prisma.event.deleteMany();
+    await eventService.deleteAllEvents();
 
     revalidatePath("/events");
     revalidatePath("/events/all");
@@ -88,15 +73,13 @@ export async function updateEvent(formData: FormData) {
         throw new Error("Bitte alle Felder ausfüllen");
     }
 
-    await prisma.event.update({
-        where: { id },
-        data: {
+    await eventService.update({
+            id,
             title,
             location,
             date: new Date(date),
             isPublic
-        }
-    })
+    });
 
     revalidatePath("/events");
     revalidatePath("/events/all");
