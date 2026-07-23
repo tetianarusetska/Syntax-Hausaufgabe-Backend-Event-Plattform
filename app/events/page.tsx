@@ -2,7 +2,7 @@ import Link from "next/link";
 import Navbar from "../cl_components/Navbar";
 import { createEvent, getPublicEvents } from "./actions";
 import { type Event } from "../types/Event"
-import EventPost from "./EventPost";
+import EventPost from "./cl_components/EventPost";
 
 export const dynamic = "force-dynamic";
 
@@ -59,7 +59,7 @@ export default async function EventsPage() {
                         {events.map((event) => {
                             return (
                                 <li key={event.id}
-                                    className="mt-10 w-100 border border-(--mainColor) rounded-2xl px-4 py-4"
+                                    className="mt-10 w-130 border border-(--mainColor) rounded-2xl px-4 py-4"
                                 >
                                     <EventPost {...event} />
                                 </li>

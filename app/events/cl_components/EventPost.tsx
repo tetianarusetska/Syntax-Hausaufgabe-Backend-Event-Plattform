@@ -1,8 +1,9 @@
 "use client"
 
 import { useTransition } from "react"
-import { deleteEvent } from "./actions"
-import { type Event } from "../types/Event"
+import { deleteEvent } from "../actions"
+import { type Event } from "../../types/Event"
+import EditEventButton from "./EditButton"
 
 export default function EventPost({ id, title, location, date, isPublic }: Event) {
 
@@ -24,20 +25,21 @@ export default function EventPost({ id, title, location, date, isPublic }: Event
     return (
 
         <div>
-                <h3>{title}</h3>
-                <p>Ort: {location}</p>
-                <p>Datum: {date.toLocaleDateString("de-DE", {
-                    day: "2-digit",
-                    month: "long",
-                    year: "numeric"
-                })}
+            <h3>{title}</h3>
+            <p>Ort: {location}</p>
+            <p>Datum: {date.toLocaleDateString("de-DE", {
+                day: "2-digit",
+                month: "long",
+                year: "numeric"
+            })}
+            </p>
+            <p>Status: {isPublic ? "Öffentlich" : "Privat"}</p>
+            {isOld && (
+                <p className="text-red-600 font-bold">
+                    Vergangenes Event
                 </p>
-                <p>Status: Öffentlich</p>
-                {isOld && (
-                    <p className="text-red-600 font-bold">
-                        Vergangenes Event
-                    </p>
-                )}
+            )}
+            <div className="flex flex-row gap-5">
                 <button
                     onClick={handleDelete}
                     disabled={isPending}
@@ -45,6 +47,9 @@ export default function EventPost({ id, title, location, date, isPublic }: Event
                 >
                     Löschen
                 </button>
+
+                <EditEventButton event={{ id, title, location, date, isPublic }} />
+            </div>
         </div>
     )
 }
