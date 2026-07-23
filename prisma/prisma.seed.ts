@@ -22,12 +22,58 @@ async function seed() {
             isPublic: true
         }
     })
+
     await prisma.event.create({
         data: {
             title: "Sommer End Party",
             location: "Frankfurt am Main",
             date: new Date("2026-08-31"),
             isPublic: true
+        }
+    })
+
+    await prisma.event.create({
+        data: {
+            title: "Party Disco",
+            location: "Frankfurt am Main",
+            date: new Date("2026-09-01"),
+            isPublic: true
+        }
+    })
+
+    await prisma.event.create({
+        data: {
+            title: "Techno Party",
+            location: "Berlin",
+            date: new Date("2026-08-20"),
+            isPublic: false
+        }
+    })
+
+    await prisma.event.create({
+        data: {
+            title: "Klassik Musik Party",
+            location: "Bad Homburg",
+            date: new Date("2026-09-11"),
+            isPublic: true
+        }
+    })
+
+    await prisma.event.create({
+        data: {
+            title: "Freunden Party",
+            location: "Frankfurt am Main",
+            date: new Date("2026-10-31"),
+            isPublic: true
+        }
+    })
+
+    await prisma.event.create({
+        data: {
+            title: "Halloween",
+            location: "Berlin",
+            date: new Date("2026-10-31"),
+            isPublic: false
         }
     })
 }
